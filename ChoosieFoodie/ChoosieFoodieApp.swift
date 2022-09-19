@@ -11,7 +11,7 @@ import SwiftUI
 struct ChoosieFoodieApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MoodScreen()
         }
     }
 }
