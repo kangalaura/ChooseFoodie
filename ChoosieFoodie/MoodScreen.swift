@@ -16,7 +16,7 @@ struct MoodScreen: View {
                         .frame(width: 400, height: 50)
                         .foregroundColor(Color.orange)
                         .cornerRadius(50)
-                    Text("Blablablablablablablabla")
+                    Text("ChoosieFoodie is at your aid")
                 }
                 Image("Brioche")
                     .resizable()
