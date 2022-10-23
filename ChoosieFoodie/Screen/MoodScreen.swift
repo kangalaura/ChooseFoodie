@@ -18,9 +18,13 @@ struct MoodScreen: View {
                         .cornerRadius(50)
                     Text("ChoosieFoodie is at your aid")
                 }
+                Spacer()
+                    .frame(height: 20)
                 Image("Brioche")
                     .resizable()
                     .frame(width: 200, height: 200)
+                Spacer()
+                    .frame(height: 20)
                 Text("What are you in the mood for?")
                     .foregroundColor(Color.orange)
                     .bold()
@@ -48,7 +52,7 @@ struct MoodScreen: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(18)
                 })
-            }
+            }.offset(y: -100)
         }
     }
 }

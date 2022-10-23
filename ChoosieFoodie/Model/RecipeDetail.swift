@@ -13,16 +13,30 @@ struct RecipeDetail: Decodable {
     let servings: Int
     let image: String
     let summary: String
-    let extendedIngredients: [Ingredient?]
+    let extendedIngredients: [Ingredient]
     let instructions: String?
-    let analyzedInstructions: [AnalyzedInstructions?]
+    let analyzedInstructions: [AnalyzedInstructions]?
+    let spoonacularSourceUrl: String
+    
+    
+    func isAI() -> Bool {
+        guard let _ = analyzedInstructions else {
+            return false
+        }
+       return true
+    }
+    
+    func getURL() -> URL {
+        return URL(string: spoonacularSourceUrl) ?? URL(string: "https://spoonacular.com")!
+    }
+    
 }
 
-struct Ingredient: Decodable {
-    let id: Int?
-    let aisle: String?
+struct Ingredient: Identifiable, Decodable {
+    let id: Int
+    let aisle: String
     let image: String?
-    let consistency: String?
+    let consistency: String
     let name: String?
     let nameClean: String?
     let original: String?
@@ -32,26 +46,28 @@ struct Ingredient: Decodable {
     let measures: Measures?
 }
 
-struct AnalyzedInstructions: Decodable {
+struct AnalyzedInstructions: Identifiable, Decodable {
+    var id: Int?
     let name: String?
-    let steps: [Steps?]
+    let steps: [Steps]?
 }
 
-struct Steps: Decodable  {
+struct Steps: Identifiable, Decodable  {
+    var id: Int?
     let number: Int?
     let step: String?
     let ingredients: [Ingredients?]
     let equipment: [Equipment?]
 }
 
-struct Equipment: Decodable  {
+struct Equipment: Identifiable, Decodable  {
     let id: Int?
     let name: String?
     let localizedName: String?
     let image: String?
 }
 
-struct Ingredients: Decodable  {
+struct Ingredients: Identifiable, Decodable  {
     let id: Int?
     let name: String?
     let localizedName: String?

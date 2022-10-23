@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor class APICaller: ObservableObject {
     @Published var recipes: [Recipe] = []
-    @Published var recipe: RecipeDetail = RecipeDetail(title: "test", readyInMinutes: 45, servings: 2, image: "https://", summary: "Test ", extendedIngredients: [Ingredient(id: 1, aisle: "", image: "", consistency: "", name: "", nameClean: "", original: "", originalName: "", amount: 2.0, unit: "", measures: Measures(us: MeasureDetail.init(amount: 2.0, unitShort: "", unitLong: ""), metric: MeasureDetail.init(amount: 2.0, unitShort: "", unitLong: "")))], instructions: "", analyzedInstructions:[ AnalyzedInstructions.init(name: "", steps: [Steps.init(number: 1, step: "", ingredients: [Ingredients.init(id: 1, name: "", localizedName: "", image: "")], equipment: [Equipment.init(id: 1, name: "", localizedName: "", image: "")])])])
+    @Published var recipe: RecipeDetail = RecipeDetail(title: "test", readyInMinutes: 45, servings: 2, image: "https://", summary: "Test ", extendedIngredients: [Ingredient(id: 1, aisle: "", image: "", consistency: "", name: "", nameClean: "", original: "", originalName: "", amount: 2.0, unit: "", measures: Measures(us: MeasureDetail.init(amount: 2.0, unitShort: "", unitLong: ""), metric: MeasureDetail.init(amount: 2.0, unitShort: "", unitLong: "")))], instructions: "", analyzedInstructions:[ AnalyzedInstructions.init(name: "", steps: [Steps.init(number: 1, step: "", ingredients: [Ingredients.init(id: 1, name: "", localizedName: "", image: "")], equipment: [Equipment.init(id: 1, name: "", localizedName: "", image: "")])])], spoonacularSourceUrl: "")
 
     
     func getRecipes(mood: String, dietry: String, intolerances: String, includeIngredients: String){
